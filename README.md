@@ -2,10 +2,8 @@
 
 Патчи для KOReader на PocketBook 632. Все файлы кладутся в папку:
 ```
-/mnt/ext1/.adds/koreader/patches/
+PB632/applications/koreader/patches/
 ```
-
-> ⚠️ Расширение файлов должно быть `.lua`, не `.txt`!
 
 ## Содержимое
 
