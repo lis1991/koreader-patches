@@ -1,2 +1,36 @@
-# koreader-patches
-KOReader user patches for PocketBook 632: fallback fonts, epub TOC fix, fb2.zip support, crash log cleanup and more
+# KOReader User Patches
+
+Патчи для KOReader на PocketBook 632. Все файлы кладутся в папку:
+```
+/mnt/ext1/.adds/koreader/patches/
+```
+
+> ⚠️ Расширение файлов должно быть `.lua`, не `.txt`!
+
+## Содержимое
+
+| Файл | Описание | Префикс |
+|---|---|---|
+| `2-fallback-font_RC6.lua` | 5 дополнительных резервных шрифтов через меню шрифтов | `2` — при старте |
+| `2-skip-first-repaint.lua` | Сохраняет изображение экрана при первой загрузке книги после перезагрузки | `2` — при старте |
+| `2-fb2zip-smart-current_RC5.lua` | Открывает `.fb2.zip` через автоматическую распаковку во `/tmp`, сохраняет историю и прогресс | `2` — при старте |
+| `2-epub-fix-toc_RC3.lua` | Исправляет несоответствие spine/toc.ncx в epub **без лишней распаковки** — проверка через `unzip -p`, полная распаковка только при необходимости | `2` — при старте |
+| `9-clear-crashlog-on-exit.lua` | Очищает `crash.log` при чистом выходе из KOReader | `9` — перед выходом |
+
+## Правила нумерации патчей
+
+Согласно [официальной документации KOReader](https://github.com/koreader/koreader/wiki/User-patches):
+
+- `1-*.lua` — выполняются до инициализации UI
+- `2-*.lua` — выполняются после инициализации UI (при старте)
+- `9-*.lua` — выполняются прямо перед выходом из приложения
+
+## Установка
+
+1. Скопируйте нужные `.lua` файлы в `/mnt/ext1/.adds/koreader/patches/`
+2. Перезапустите KOReader
+3. Проверьте `crash.log` на наличие ошибок при загрузке патчей
+
+## Лицензия
+
+MIT License — свободно для любого использования.
